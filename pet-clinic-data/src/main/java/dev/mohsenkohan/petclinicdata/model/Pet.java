@@ -1,4 +1,4 @@
-package dev.mohsenkohan.petclinic.model;
+package dev.mohsenkohan.petclinicdata.model;
 
 import java.time.LocalDate;
 

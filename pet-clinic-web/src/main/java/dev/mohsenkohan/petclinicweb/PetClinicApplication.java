@@ -1,4 +1,4 @@
-package dev.mohsenkohan.petclinic;
+package dev.mohsenkohan.petclinicweb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

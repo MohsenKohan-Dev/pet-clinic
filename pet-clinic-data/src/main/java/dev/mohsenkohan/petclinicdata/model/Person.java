@@ -1,4 +1,4 @@
-package dev.mohsenkohan.petclinic.model;
+package dev.mohsenkohan.petclinicdata.model;
 
 public class Person {
 
