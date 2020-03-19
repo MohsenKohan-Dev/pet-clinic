@@ -1,6 +1,6 @@
 package dev.mohsenkohan.petclinicdata.model;
 
-public class PetType {
+public class PetType extends BaseEntity {
 
     private String name;
 
