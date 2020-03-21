@@ -1,14 +1,14 @@
 package dev.mohsenkohan.petclinicweb.controllers;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomeController {
+@RequestMapping("/owners")
+public class OwnerController {
 
     @RequestMapping({"", "/", "/index", "/index.html"})
-    public String index() {
-        return "index";
+    public String listOwner() {
+        return "owners/index";
     }
 }
