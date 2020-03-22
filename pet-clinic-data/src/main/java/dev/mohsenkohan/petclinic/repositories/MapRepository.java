@@ -1,16 +1,6 @@
 package dev.mohsenkohan.petclinic.repositories;
 
-import java.util.Set;
+import dev.mohsenkohan.petclinic.services.CrudService;
 
-public interface MapRepository<K, V> {
-
-    Set<V> findAll();
-
-    V findByKey(K key);
-
-    V save(K key, V value);
-
-    void delete(V value);
-
-    void deleteByKey(K key);
+public interface MapRepository<K, V> extends CrudService<V, K> {
 }

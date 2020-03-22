@@ -1,5 +1,6 @@
 package dev.mohsenkohan.petclinic.repositories;
 
+import dev.mohsenkohan.petclinic.model.BaseEntity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
@@ -10,11 +11,13 @@ import java.util.Set;
 
 @Repository
 @Scope("prototype")
-public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
+public class MapRepositoryImpl<K extends Number, V extends BaseEntity> implements MapRepository<K, V> {
 
-    private final Map<K, V> map;
+    private Long id;
+    private final Map<Long, V> map;
 
     public MapRepositoryImpl() {
+        id = 1L;
         this.map = new HashMap<>();
     }
 
@@ -24,13 +27,14 @@ public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
     }
 
     @Override
-    public V findByKey(K key) {
+    public V findById(K key) {
         return map.get(key);
     }
 
     @Override
-    public V save(K key, V value) {
-        return map.put(key, value);
+    public V save(V value) {
+        value.setId(nextId());
+        return map.put(value.getId(), value);
     }
 
     @Override
@@ -39,7 +43,11 @@ public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
     }
 
     @Override
-    public void deleteByKey(K key) {
+    public void deleteById(K key) {
         map.remove(key);
+    }
+
+    private Long nextId() {
+        return id++;
     }
 }

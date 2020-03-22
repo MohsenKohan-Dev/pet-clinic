@@ -22,12 +22,12 @@ public class VetServiceMapImpl implements VetService {
 
     @Override
     public Vet findById(Long id) {
-        return mapRepository.findByKey(id);
+        return mapRepository.findById(id);
     }
 
     @Override
     public Vet save(Vet entity) {
-        return mapRepository.save(entity.getId(), entity);
+        return mapRepository.save(entity);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class VetServiceMapImpl implements VetService {
 
     @Override
     public void deleteById(Long id) {
-        mapRepository.deleteByKey(id);
+        mapRepository.deleteById(id);
     }
 }

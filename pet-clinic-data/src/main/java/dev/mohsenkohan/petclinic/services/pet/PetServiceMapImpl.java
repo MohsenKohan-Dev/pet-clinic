@@ -22,12 +22,12 @@ public class PetServiceMapImpl implements PetService {
 
     @Override
     public Pet findById(Long id) {
-        return mapRepository.findByKey(id);
+        return mapRepository.findById(id);
     }
 
     @Override
     public Pet save(Pet entity) {
-        return mapRepository.save(entity.getId(), entity);
+        return mapRepository.save(entity);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class PetServiceMapImpl implements PetService {
 
     @Override
     public void deleteById(Long id) {
-        mapRepository.deleteByKey(id);
+        mapRepository.deleteById(id);
     }
 }

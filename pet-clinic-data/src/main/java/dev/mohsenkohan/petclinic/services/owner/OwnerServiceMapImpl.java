@@ -32,12 +32,12 @@ public class OwnerServiceMapImpl implements OwnerService {
 
     @Override
     public Owner findById(Long id) {
-        return mapRepository.findByKey(id);
+        return mapRepository.findById(id);
     }
 
     @Override
     public Owner save(Owner entity) {
-        return mapRepository.save(entity.getId(), entity);
+        return mapRepository.save(entity);
     }
 
     @Override
@@ -47,6 +47,6 @@ public class OwnerServiceMapImpl implements OwnerService {
 
     @Override
     public void deleteById(Long id) {
-        mapRepository.deleteByKey(id);
+        mapRepository.deleteById(id);
     }
 }
