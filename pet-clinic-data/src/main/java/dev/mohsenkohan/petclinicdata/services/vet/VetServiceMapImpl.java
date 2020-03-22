@@ -2,9 +2,11 @@ package dev.mohsenkohan.petclinicdata.services.vet;
 
 import dev.mohsenkohan.petclinicdata.model.Vet;
 import dev.mohsenkohan.petclinicdata.repositories.MapRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetServiceMapImpl implements VetService {
 
     private final MapRepository<Long, Vet> mapRepository;
@@ -20,7 +22,7 @@ public class VetServiceMapImpl implements VetService {
 
     @Override
     public Vet findById(Long id) {
-        return mapRepository.findById(id);
+        return mapRepository.findByKey(id);
     }
 
     @Override
@@ -35,6 +37,6 @@ public class VetServiceMapImpl implements VetService {
 
     @Override
     public void deleteById(Long id) {
-        mapRepository.deleteById(id);
+        mapRepository.deleteByKey(id);
     }
 }

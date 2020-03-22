@@ -2,15 +2,10 @@ package dev.mohsenkohan.petclinicweb.bootstrap;
 
 import dev.mohsenkohan.petclinicdata.model.Owner;
 import dev.mohsenkohan.petclinicdata.model.Vet;
-import dev.mohsenkohan.petclinicdata.repositories.MapRepositoryImpl;
 import dev.mohsenkohan.petclinicdata.services.owner.OwnerService;
-import dev.mohsenkohan.petclinicdata.services.owner.OwnerServiceMapImpl;
 import dev.mohsenkohan.petclinicdata.services.vet.VetService;
-import dev.mohsenkohan.petclinicdata.services.vet.VetServiceMapImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -18,9 +13,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMapImpl(new MapRepositoryImpl<>(new HashMap<>()));
-        vetService = new VetServiceMapImpl(new MapRepositoryImpl<>(new HashMap<>()));
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override

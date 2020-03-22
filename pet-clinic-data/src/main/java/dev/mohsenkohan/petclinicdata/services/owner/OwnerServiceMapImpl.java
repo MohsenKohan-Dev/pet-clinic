@@ -2,9 +2,11 @@ package dev.mohsenkohan.petclinicdata.services.owner;
 
 import dev.mohsenkohan.petclinicdata.model.Owner;
 import dev.mohsenkohan.petclinicdata.repositories.MapRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMapImpl implements OwnerService {
 
     private final MapRepository<Long, Owner> mapRepository;
@@ -30,7 +32,7 @@ public class OwnerServiceMapImpl implements OwnerService {
 
     @Override
     public Owner findById(Long id) {
-        return mapRepository.findById(id);
+        return mapRepository.findByKey(id);
     }
 
     @Override
@@ -45,6 +47,6 @@ public class OwnerServiceMapImpl implements OwnerService {
 
     @Override
     public void deleteById(Long id) {
-        mapRepository.deleteById(id);
+        mapRepository.deleteByKey(id);
     }
 }

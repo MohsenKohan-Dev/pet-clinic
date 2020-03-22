@@ -1,15 +1,21 @@
 package dev.mohsenkohan.petclinicdata.repositories;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+@Repository
+@Scope("prototype")
 public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
 
     private final Map<K, V> map;
 
-    public MapRepositoryImpl(Map<K, V> map) {
-        this.map = map;
+    public MapRepositoryImpl() {
+        this.map = new HashMap<>();
     }
 
     @Override
@@ -18,7 +24,7 @@ public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
     }
 
     @Override
-    public V findById(K key) {
+    public V findByKey(K key) {
         return map.get(key);
     }
 
@@ -33,7 +39,7 @@ public class MapRepositoryImpl<K, V> implements MapRepository<K, V> {
     }
 
     @Override
-    public void deleteById(K key) {
+    public void deleteByKey(K key) {
         map.remove(key);
     }
 }
