@@ -1,19 +1,29 @@
 package dev.mohsenkohan.petclinic.model;
 
 import java.time.LocalDate;
+import java.util.Set;
 
-public class Pet extends BaseEntity {
+public class Pet extends NamedEntity {
 
-    private PetType petType;
-    private Owner owner;
     private LocalDate birthDate;
+    private PetType type;
+    private Owner owner;
+    private Set<Visit> visits;
 
-    public PetType getPetType() {
-        return petType;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setPetType(PetType petType) {
-        this.petType = petType;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public PetType getType() {
+        return type;
+    }
+
+    public void setType(PetType type) {
+        this.type = type;
     }
 
     public Owner getOwner() {
@@ -24,11 +34,11 @@ public class Pet extends BaseEntity {
         this.owner = owner;
     }
 
-    public LocalDate getBirthDate() {
-        return birthDate;
+    public Set<Visit> getVisits() {
+        return visits;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 }
