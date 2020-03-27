@@ -1,37 +1,37 @@
-package dev.mohsenkohan.petclinic.services.pet.type;
+package dev.mohsenkohan.petclinic.services.specialty;
 
-import dev.mohsenkohan.petclinic.model.PetType;
+import dev.mohsenkohan.petclinic.model.Specialty;
 import dev.mohsenkohan.petclinic.repositories.MapRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class PetTypeServiceMapImpl implements PetTypeService {
+public class SpecialtyServiceMapImpl implements SpecialtyService {
 
-    private final MapRepository<Long, PetType> mapRepository;
+    private final MapRepository<Long, Specialty> mapRepository;
 
-    public PetTypeServiceMapImpl(MapRepository<Long, PetType> mapRepository) {
+    public SpecialtyServiceMapImpl(MapRepository<Long, Specialty> mapRepository) {
         this.mapRepository = mapRepository;
     }
 
     @Override
-    public Set<PetType> findAll() {
+    public Set<Specialty> findAll() {
         return mapRepository.findAll();
     }
 
     @Override
-    public PetType findById(Long id) {
+    public Specialty findById(Long id) {
         return mapRepository.findById(id);
     }
 
     @Override
-    public PetType save(PetType entity) {
+    public Specialty save(Specialty entity) {
         return mapRepository.save(entity);
     }
 
     @Override
-    public void delete(PetType entity) {
+    public void delete(Specialty entity) {
         mapRepository.delete(entity);
     }
 

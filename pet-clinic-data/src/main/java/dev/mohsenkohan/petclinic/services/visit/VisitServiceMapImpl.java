@@ -9,7 +9,7 @@ import java.util.Set;
 @Service
 public class VisitServiceMapImpl implements VisitService {
 
-    private MapRepository<Long, Visit> mapRepository;
+    private final MapRepository<Long, Visit> mapRepository;
 
     public VisitServiceMapImpl(MapRepository<Long, Visit> mapRepository) {
         this.mapRepository = mapRepository;
