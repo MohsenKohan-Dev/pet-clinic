@@ -1,6 +1,7 @@
 package dev.mohsenkohan.petclinic.services.pet;
 
 import dev.mohsenkohan.petclinic.model.Pet;
+import dev.mohsenkohan.petclinic.model.Visit;
 import dev.mohsenkohan.petclinic.repositories.MapRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,32 @@ public class PetServiceMapImpl implements PetService {
 
     public PetServiceMapImpl(MapRepository<Long, Pet> map) {
         this.mapRepository = map;
+    }
+
+    @Override
+    public Set<Pet> findAllByOwnerId(Long id) {
+        Set<Pet> all = null;
+
+        for (Pet pet : mapRepository.findAll()) {
+            if (pet.getOwner().getId().equals(id)) {
+                all.add(pet);
+            }
+        }
+
+        return all;
+    }
+
+    @Override
+    public Set<Pet> findAllByPetTypeId(Long id) {
+        Set<Pet> all = null;
+
+        for (Pet pet : mapRepository.findAll()) {
+            if (pet.getType().getId().equals(id)) {
+                all.add(pet);
+            }
+        }
+
+        return all;
     }
 
     @Override
