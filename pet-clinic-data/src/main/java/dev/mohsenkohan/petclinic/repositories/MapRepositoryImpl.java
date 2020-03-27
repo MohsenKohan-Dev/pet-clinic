@@ -34,7 +34,8 @@ public class MapRepositoryImpl<K extends Number, V extends BaseEntity> implement
     @Override
     public V save(V value) {
         value.setId(nextId());
-        return map.put(value.getId(), value);
+        map.put(value.getId(), value);
+        return value;
     }
 
     @Override
