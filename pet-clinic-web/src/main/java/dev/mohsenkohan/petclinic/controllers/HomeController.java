@@ -11,4 +11,9 @@ public class HomeController {
     public String index() {
         return "index";
     }
+
+    @RequestMapping("/oups")
+    public String oopsHandler() {
+        return "notImpl";
+    }
 }
