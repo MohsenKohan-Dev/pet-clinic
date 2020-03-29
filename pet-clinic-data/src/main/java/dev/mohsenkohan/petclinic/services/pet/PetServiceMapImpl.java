@@ -1,12 +1,17 @@
 package dev.mohsenkohan.petclinic.services.pet;
 
+import dev.mohsenkohan.petclinic.model.Owner;
 import dev.mohsenkohan.petclinic.model.Pet;
+import dev.mohsenkohan.petclinic.model.PetType;
 import dev.mohsenkohan.petclinic.repositories.map.MapRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class PetServiceMapImpl implements PetService {
 
     private final MapRepository<Long, Pet> mapRepository;
@@ -16,11 +21,11 @@ public class PetServiceMapImpl implements PetService {
     }
 
     @Override
-    public Set<Pet> findAllByOwnerId(Long id) {
-        Set<Pet> all = null;
+    public Set<Pet> findAllByOwner(Owner owner) {
+        Set<Pet> all = new HashSet<>();
 
         for (Pet pet : mapRepository.findAll()) {
-            if (pet.getOwner().getId().equals(id)) {
+            if (pet.getOwner().getId().equals(owner.getId())) {
                 all.add(pet);
             }
         }
@@ -29,11 +34,11 @@ public class PetServiceMapImpl implements PetService {
     }
 
     @Override
-    public Set<Pet> findAllByPetTypeId(Long id) {
-        Set<Pet> all = null;
+    public Set<Pet> findAllByType(PetType type) {
+        Set<Pet> all = new HashSet<>();
 
         for (Pet pet : mapRepository.findAll()) {
-            if (pet.getType().getId().equals(id)) {
+            if (pet.getType().getId().equals(type.getId())) {
                 all.add(pet);
             }
         }

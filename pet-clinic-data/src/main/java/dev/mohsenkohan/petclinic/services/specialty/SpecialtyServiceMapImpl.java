@@ -2,11 +2,13 @@ package dev.mohsenkohan.petclinic.services.specialty;
 
 import dev.mohsenkohan.petclinic.model.Specialty;
 import dev.mohsenkohan.petclinic.repositories.map.MapRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class SpecialtyServiceMapImpl implements SpecialtyService {
 
     private final MapRepository<Long, Specialty> mapRepository;

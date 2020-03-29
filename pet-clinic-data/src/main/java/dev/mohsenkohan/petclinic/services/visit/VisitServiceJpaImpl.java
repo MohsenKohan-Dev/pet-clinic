@@ -1,5 +1,6 @@
 package dev.mohsenkohan.petclinic.services.visit;
 
+import dev.mohsenkohan.petclinic.model.Pet;
 import dev.mohsenkohan.petclinic.model.Visit;
 import dev.mohsenkohan.petclinic.repositories.jpa.VisitRepository;
 import org.springframework.context.annotation.Profile;
@@ -19,8 +20,8 @@ public class VisitServiceJpaImpl implements VisitService {
     }
 
     @Override
-    public Set<Visit> findAllByPetId(Long id) {
-        return null;
+    public Set<Visit> findAllByPet(Pet pet) {
+        return visitRepository.findAllByPet(pet);
     }
 
     @Override

@@ -1,12 +1,16 @@
 package dev.mohsenkohan.petclinic.services.visit;
 
+import dev.mohsenkohan.petclinic.model.Pet;
 import dev.mohsenkohan.petclinic.model.Visit;
 import dev.mohsenkohan.petclinic.repositories.map.MapRepository;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMapImpl implements VisitService {
 
     private final MapRepository<Long, Visit> mapRepository;
@@ -16,11 +20,11 @@ public class VisitServiceMapImpl implements VisitService {
     }
 
     @Override
-    public Set<Visit> findAllByPetId(Long id) {
-        Set<Visit> all = null;
+    public Set<Visit> findAllByPet(Pet pet) {
+        Set<Visit> all = new HashSet<>();
 
         for (Visit visit : mapRepository.findAll()) {
-            if (visit.getPet().getId().equals(id)) {
+            if (visit.getPet().getId().equals(pet.getId())) {
                 all.add(visit);
             }
         }

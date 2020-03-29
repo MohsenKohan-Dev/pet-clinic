@@ -1,6 +1,8 @@
 package dev.mohsenkohan.petclinic.services.pet;
 
+import dev.mohsenkohan.petclinic.model.Owner;
 import dev.mohsenkohan.petclinic.model.Pet;
+import dev.mohsenkohan.petclinic.model.PetType;
 import dev.mohsenkohan.petclinic.repositories.jpa.PetRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -19,13 +21,13 @@ public class PetServiceJpaImpl implements PetService {
     }
 
     @Override
-    public Set<Pet> findAllByOwnerId(Long id) {
-        return null;
+    public Set<Pet> findAllByOwner(Owner owner) {
+        return petRepository.findAllByOwner(owner);
     }
 
     @Override
-    public Set<Pet> findAllByPetTypeId(Long id) {
-        return null;
+    public Set<Pet> findAllByType(PetType type) {
+        return petRepository.findAllByType(type);
     }
 
     @Override
