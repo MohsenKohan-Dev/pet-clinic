@@ -13,7 +13,7 @@ public class Pet extends NamedEntity {
     private LocalDate birthDate;
 
     @ManyToOne
-    @Column(name = "type")
+    @JoinColumn(name = "type_id")
     private PetType type;
 
     @ManyToOne
