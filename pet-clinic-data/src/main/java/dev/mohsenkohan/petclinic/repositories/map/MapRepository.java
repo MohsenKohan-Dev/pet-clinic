@@ -1,4 +1,4 @@
-package dev.mohsenkohan.petclinic.repositories;
+package dev.mohsenkohan.petclinic.repositories.map;
 
 import dev.mohsenkohan.petclinic.services.CrudService;
 

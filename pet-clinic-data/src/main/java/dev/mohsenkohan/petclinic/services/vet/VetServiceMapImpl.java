@@ -1,7 +1,7 @@
 package dev.mohsenkohan.petclinic.services.vet;
 
 import dev.mohsenkohan.petclinic.model.Vet;
-import dev.mohsenkohan.petclinic.repositories.MapRepository;
+import dev.mohsenkohan.petclinic.repositories.map.MapRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
