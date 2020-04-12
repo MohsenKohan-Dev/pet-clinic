@@ -65,7 +65,7 @@ public class DataLoader implements CommandLineRunner {
         mikesPet.setBirthDate(LocalDate.now());
         mikesPet.setName("Rosco");
 
-        owner1.getPets().add(mikesPet);
+        owner1.addPet(mikesPet);
         ownerService.save(owner1);
 
         // for map impl
@@ -90,7 +90,7 @@ public class DataLoader implements CommandLineRunner {
         fionasCat.setBirthDate(LocalDate.now());
         fionasCat.setType(savedCatPetType);
 
-        owner2.getPets().add(fionasCat);
+        owner2.addPet(fionasCat);
         ownerService.save(owner2);
 
         // for map impl
