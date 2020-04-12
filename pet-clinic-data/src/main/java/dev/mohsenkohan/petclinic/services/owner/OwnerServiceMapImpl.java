@@ -5,6 +5,7 @@ import dev.mohsenkohan.petclinic.repositories.map.MapRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Set;
 
 @Service
@@ -15,6 +16,11 @@ public class OwnerServiceMapImpl implements OwnerService {
 
     public OwnerServiceMapImpl(MapRepository<Long, Owner> mapRepository) {
         this.mapRepository = mapRepository;
+    }
+
+    @Override
+    public Collection<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 
     @Override
