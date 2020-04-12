@@ -5,7 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
@@ -25,6 +25,17 @@ public class Pet extends NamedEntity {
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-    private Set<Visit> visits = new HashSet<>();
+    @OneToMany(mappedBy = "pet", cascade = CascadeType.ALL)
+    private Set<Visit> visits;
+
+    private Set<Visit> getVisitsInternal() {
+        return visits == null ? new LinkedHashSet<>() : visits;
+    }
+
+    public void addVisit(Visit visit) {
+        if (visit.isNew()) {
+            getVisitsInternal().add(visit);
+        }
+        visit.setPet(this);
+    }
 }
