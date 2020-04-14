@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,12 +16,15 @@ import java.util.Set;
 public class Owner extends Person {
 
     @Column(name = "address")
+    @NotEmpty
     private String address;
 
     @Column(name = "city")
+    @NotEmpty
     private String city;
 
     @Column(name = "telephone")
+    @Digits(integer = 10, fraction = 0)
     private String telephone;
 
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
